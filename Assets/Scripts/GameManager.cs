@@ -44,4 +44,15 @@ public class GameManager : MonoBehaviour
         stayLitCounter = stayLit;
     
     }
+    //check if the button is pressed
+    public void ColourPressed(int whichButton)
+    {
+if(colourSelect == whichButton)
+        {
+            Debug.Log("Correct");
+        } else
+        {
+            Debug.Log("Wrong");
+        }
+    }
 }
