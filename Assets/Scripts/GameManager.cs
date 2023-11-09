@@ -23,7 +23,10 @@ public class GameManager : MonoBehaviour
     //creating light up sequence using a list
     public List<int> activeSequence;
     private int positionInSequence;
-      
+
+    //checks were we are in sequence and if player inputs correct sequence
+    private bool gameActive;
+    private int inputInSequence;
     
     // Start is called before the first frame update
     void Start()
@@ -61,12 +64,14 @@ public class GameManager : MonoBehaviour
             if(positionInSequence >= activeSequence.Count)
             {
                 shouldBeDark = false;
+                gameActive = true;
 
                 //if not
             } else
             {
 if (waitBetweenCounter < 0)
                 {
+
                     
                     colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
 
@@ -80,8 +85,14 @@ if (waitBetweenCounter < 0)
 
     public void StartGame()
     {
+        //clears all previous sequences when start game
+        activeSequence.Clear();
+
         //sets start position in sequence
         positionInSequence = 0;
+
+        //resets sequence after turn
+        inputInSequence = 0;
 
         //selects random colour in array and changes its alpha value to light it up for alloted time
         colourSelect = Random.Range(0, colours.Length);
@@ -93,17 +104,47 @@ if (waitBetweenCounter < 0)
 
         stayLitCounter = stayLit;
         shouldBeLit = true;
+
     
     }
     //checks if the button is pressed and relays a correct or wrong msg
     public void ColourPressed(int whichButton)
     {
-if(colourSelect == whichButton)
+        if (gameActive)
         {
-            Debug.Log("Correct");
-        } else
-        {
-            Debug.Log("Wrong");
+            //checks sequence correct or not
+            if (activeSequence[inputInSequence] == whichButton)
+            {
+                Debug.Log("Correct");
+
+                //add number to sequence if input is correct
+                inputInSequence++;
+
+                if(inputInSequence >= activeSequence.Count)
+                {
+                    //rest for each turn
+                    positionInSequence = 0;
+                    inputInSequence = 0;
+
+                    //selects random colour in array and changes its alpha value to light it up for alloted time
+                    colourSelect = Random.Range(0, colours.Length);
+
+                    //if we input correct creates new sequence and adds another random numbers to list
+                    activeSequence.Add(colourSelect);
+
+                    colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
+
+                    stayLitCounter = stayLit;
+                    shouldBeLit = true;
+
+                    //stops input till sequence is finished
+                    gameActive = false;
+                }
+
+            } else {
+                Debug.Log("Wrong");
+                gameActive = false;
+            }
         }
     }
 }
