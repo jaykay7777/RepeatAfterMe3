@@ -156,6 +156,8 @@ MonoBehaviour:
   - {fileID: 704069327}
   - {fileID: 1621554292}
   stayLit: 1
+  waitBetweenLights: 0.25
+  activeSequence: 
 --- !u!4 &80201717
 Transform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
+    //give each button a specific number to make it easier when making a sequence in the game manager
     private SpriteRenderer theSprite;
 
     public int thisButtonNumber;
@@ -23,7 +24,7 @@ public class ButtonController : MonoBehaviour
         
 
     }
-
+    //changes the alpha/brightness of the button when pressed
     private void OnMouseDown()
     {
         theSprite.color = new Color(theSprite.color.r, theSprite.color.g, theSprite.color.b, 1f);
