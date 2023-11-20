@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     //colour array for buttons...select colour and light it up for alloted time
     public SpriteRenderer[] colours;
 
+    //sound array for buttons
+    public AudioSource[] buttonSounds;
+
     private int colourSelect;
 
     //counter for how long buttons stay lit
@@ -27,7 +30,10 @@ public class GameManager : MonoBehaviour
     //checks were we are in sequence and if player inputs correct sequence
     private bool gameActive;
     private int inputInSequence;
-    
+
+    public AudioSource correct;
+    public AudioSource wrong;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +51,7 @@ public class GameManager : MonoBehaviour
             if (stayLitCounter < 0)
             {
                 colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 0.5f);
+                buttonSounds[activeSequence[positionInSequence]].Stop();
                 shouldBeLit = false;
 
                 //add a delay between buttons lighting in sequence
@@ -74,6 +81,7 @@ if (waitBetweenCounter < 0)
 
                     
                     colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
+                    buttonSounds[activeSequence[positionInSequence]].Play();
 
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
@@ -102,6 +110,9 @@ if (waitBetweenCounter < 0)
 
         colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
 
+        //play button sound from array
+        buttonSounds[activeSequence[positionInSequence]].Play();
+
         stayLitCounter = stayLit;
         shouldBeLit = true;
 
@@ -116,6 +127,7 @@ if (waitBetweenCounter < 0)
             if (activeSequence[inputInSequence] == whichButton)
             {
                 Debug.Log("Correct");
+                
 
                 //add number to sequence if input is correct
                 inputInSequence++;
@@ -133,16 +145,21 @@ if (waitBetweenCounter < 0)
                     activeSequence.Add(colourSelect);
 
                     colours[activeSequence[positionInSequence]].color = new Color(colours[activeSequence[positionInSequence]].color.r, colours[activeSequence[positionInSequence]].color.g, colours[activeSequence[positionInSequence]].color.b, 1f);
+                    buttonSounds[activeSequence[positionInSequence]].Play();
 
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
 
                     //stops input till sequence is finished
                     gameActive = false;
+
+                    //play sound when correct
+                    correct.Play();
                 }
 
             } else {
                 Debug.Log("Wrong");
+                wrong.Play();
                 gameActive = false;
             }
         }

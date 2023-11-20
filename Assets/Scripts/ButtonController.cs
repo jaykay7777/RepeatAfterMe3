@@ -11,11 +11,15 @@ public class ButtonController : MonoBehaviour
 
     private GameManager theGM;
 
+    //sounds for buttons
+    private AudioSource theSound;
+
     // Start is called before the first frame update
     void Start()
     {
         theSprite = GetComponent<SpriteRenderer>();
         theGM = FindObjectOfType<GameManager>();
+        theSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,11 +32,13 @@ public class ButtonController : MonoBehaviour
     private void OnMouseDown()
     {
         theSprite.color = new Color(theSprite.color.r, theSprite.color.g, theSprite.color.b, 1f);
+        theSound.Play();
     }
 
     private void OnMouseUp()
     {
         theSprite.color = new Color(theSprite.color.r, theSprite.color.g, theSprite.color.b, 0.5f);
         theGM.ColourPressed(thisButtonNumber);
+        theSound.Stop();
     }
 }
