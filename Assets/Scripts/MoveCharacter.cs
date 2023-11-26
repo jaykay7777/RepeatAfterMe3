@@ -10,11 +10,19 @@ namespace leveldesign{
 
         public Transform pointBTransform;
 
+        public Transform pointCTransform;
+
+        public Transform pointDTransform;
+
         public float Speed = 2.0f;
 
         private Vector3 pointA;
 
         private Vector3 pointB;
+
+        private Vector3 pointC;
+
+        private Vector3 pointD;
 
         private float journeyLength;
 
@@ -22,13 +30,13 @@ namespace leveldesign{
         // Start is called before the first frame update
         void Start()
         {
-            if(pointATransform && pointBTransform)
+            if(pointATransform && pointDTransform)
             {
                 pointA = pointATransform.position;
-                pointB = pointBTransform.position;
+                pointD = pointDTransform.position;
 
                 startTime = Time.time;
-                journeyLength = Vector3.Distance(pointA, pointB);
+                journeyLength = Vector3.Distance(pointA, pointD);
             }
             else
             {
@@ -39,11 +47,11 @@ namespace leveldesign{
         // Update is called once per frame
         private void Update()
         {
-if(pointATransform&& pointBTransform)
+if(pointATransform&& pointDTransform)
             {
                 float distCovered = (Time.time - startTime) * Speed;
                 float fractionOfJourney = distCovered / journeyLength;
-                transform.position = Vector3.Lerp(pointA, pointB, Mathf.PingPong(fractionOfJourney, 1));
+                transform.position = Vector3.Lerp(pointA, pointD, Mathf.PingPong(fractionOfJourney, 1));
             }
         }
        
