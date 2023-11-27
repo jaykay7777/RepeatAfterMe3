@@ -157,6 +157,9 @@ if (waitBetweenCounter < 0)
 
                     //play sound when correct
                     correct.Play();
+
+                    //delay?????...........................Trying to create a short delay between squence imputs
+
                 }
 
             } else {

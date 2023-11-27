@@ -6,6 +6,8 @@ namespace leveldesign{
 
     public class MoveCharacter : MonoBehaviour
         {
+       
+        //Code from class tutorials
         public Transform pointATransform;
 
         public Transform pointBTransform;
@@ -27,10 +29,17 @@ namespace leveldesign{
         private float journeyLength;
 
         private float startTime;
+
+        //point to the game manager
+        private GameManager theGM;
+
+
         // Start is called before the first frame update
         void Start()
         {
-            if(pointATransform && pointDTransform)
+            theGM = FindObjectOfType<GameManager>();
+            //Code from class tutorials
+            if (pointATransform && pointDTransform)
             {
                 pointA = pointATransform.position;
                 pointD = pointDTransform.position;
@@ -47,6 +56,7 @@ namespace leveldesign{
         // Update is called once per frame
         private void Update()
         {
+            //code from class tutorials
 if(pointATransform&& pointDTransform)
             {
                 float distCovered = (Time.time - startTime) * Speed;
