@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Not calling on these in the code so far but put them here in case I need them later...
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -120,6 +123,9 @@ if (waitBetweenCounter < 0)
 
     
     }
+
+  
+
     //checks if the button is pressed and relays a correct or wrong msg
     public void ColourPressed(int whichButton)
     {
