@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public AudioSource wrong;
 
     
+    //setting up animations!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //private Animator Jump;
 
     // Start is called before the first frame update
     void Start()
@@ -163,6 +165,9 @@ if (waitBetweenCounter < 0)
 
                     //play sound when correct
                     correct.Play();
+
+                    //play animation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    //Animator.Instantiate("Jump");
 
                     //delay?????...........................Trying to create a short delay between squence imputs
 

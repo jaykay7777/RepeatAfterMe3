@@ -16,7 +16,7 @@ namespace leveldesign{
 
         public Transform pointDTransform;
 
-        public float Speed = 2.0f;
+        public float Speed = 20.0f;
 
         private Vector3 pointA;
 
@@ -39,13 +39,13 @@ namespace leveldesign{
         {
             theGM = FindObjectOfType<GameManager>();
             //Code from class tutorials
-            if (pointATransform && pointDTransform)
+            if (pointATransform && pointBTransform)
             {
                 pointA = pointATransform.position;
-                pointD = pointDTransform.position;
+                pointB = pointBTransform.position;
 
                 startTime = Time.time;
-                journeyLength = Vector3.Distance(pointA, pointD);
+                journeyLength = Vector3.Distance(pointA, pointB);
             }
             else
             {
@@ -61,7 +61,7 @@ if(pointATransform&& pointDTransform)
             {
                 float distCovered = (Time.time - startTime) * Speed;
                 float fractionOfJourney = distCovered / journeyLength;
-                transform.position = Vector3.Lerp(pointA, pointD, Mathf.PingPong(fractionOfJourney, 1));
+                transform.position = Vector3.Lerp(pointA, pointB, Mathf.PingPong(fractionOfJourney, 1));
             }
         }
        
