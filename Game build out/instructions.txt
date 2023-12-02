@@ -1,0 +1,1 @@
+click on the 3 little dots and turn off device observer. To get the buttons to work correctly, they dont seem to respong to clicks most of the time otherwise.
