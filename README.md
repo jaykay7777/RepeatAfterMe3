@@ -8,10 +8,10 @@ Repeat after me is a simple sequenced based puzzle game, based on the classic SI
 Download the .exe file.
 
 ## Enable developer mode by:
-   1 Go to Settings > System.
-   2 Touch About phone.
-   3 Touch the Build number field 7 times. You will begin seeing a message as you approach the 7 touches.
-   4 Touch the back arrow once complete, and Developer options will now appear under Settings.
+          1. Go to Settings > System.
+          2. Touch About phone.
+          3. Touch the Build number field 7 times. You will begin seeing a message as you approach the 7 touches.
+          4. Touch the back arrow once complete, and Developer options will now appear under Settings.
 
 Install game.
 
