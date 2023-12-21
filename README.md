@@ -1,6 +1,6 @@
 # RepeatAfterMe3
  
-Repeat after me is a simple sequenced based puzzle game, based on the classic SIMON game developed in 1978. A button sequence is played and then must be repeated by the player in order to progress. With each correct entry a further value is added to the ever increasing sequence, testing the users attention and memory. With every correct sequence, move your character a step closer to the finish line.
+_Repeat After Me_ is a simple sequenced based puzzle game, based on the classic SIMON game developed in 1978. A button sequence is played and then must be repeated by the player in order to progress. With each correct entry a further value is added to the ever increasing sequence, testing the users attention and memory. Every correct sequence moves your character a step closer to the finish line.
 
 
 
@@ -15,8 +15,9 @@ Download the .exe file.
 
 Install game.
 
-If the sequencer buttons aren't as responcive as you'd like:
-* Click on the three dots and turn of Device Detection. 
+If the sequencer buttons aren't as responsive as you'd like:
+* Click on the three dots; and
+* turn off Device Detection. 
 
 
 
