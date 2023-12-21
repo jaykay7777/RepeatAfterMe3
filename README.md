@@ -15,7 +15,8 @@ Download the .exe file.
 
 Install game.
 
-If the sequencer buttonts aren't as responcive as you'd like. Click on the three dots and turn of Device Detection. 
+If the sequencer buttons aren't as responcive as you'd like:
+* Click on the three dots and turn of Device Detection. 
 
 
 
